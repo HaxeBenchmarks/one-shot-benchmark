@@ -15,8 +15,6 @@ class OneShotBenchmarkPage {
 	}
 
 	static function setupOneShotBenchmark() {
-		trace("POST request");
-
 		var repoUrl:String = OneShotBenchmarkMacro.gitRepoFolder();
 		if (repoUrl == null) {
 			redirect("index.php?error=No%20repo");

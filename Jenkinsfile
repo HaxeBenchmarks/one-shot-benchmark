@@ -27,7 +27,12 @@ pipeline {
             steps {
                 echo 'Copy Formatter detail pages'
                 sh '''
-                git clone --depth 1 https://github.com/HaxeBenchmarks/benchs.haxe.org.git
+                if [ ! -d "benchs.haxe.org" ]; then
+                    git clone --depth 1 https://github.com/HaxeBenchmarks/benchs.haxe.org.git
+                else
+                    cd benchs.haxe.org
+                    git pull
+                fi
                 '''
             }
         }
