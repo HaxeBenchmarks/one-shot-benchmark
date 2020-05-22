@@ -6,7 +6,7 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '1', artifactNumToKeepStr: '1'))
     }
     stages {
-        stage('checkout') {
+        stage('initialise') {
             steps {
                 echo 'run benchmark'
                 sh '''

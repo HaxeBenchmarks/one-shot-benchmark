@@ -47,9 +47,9 @@ class OneShotBenchmarkPage {
 		writeRunner(branchName, tempFolder, dependencies);
 
 		command("git", ["add", "."]);
-		command("git", ["commit", "-m", "submitted for benchmark", "--author", "OneShotWebpage"]);
+		command("git", ["commit", "-m", "submitted for benchmark"]);
 		command("git", ["push", "--set-upstream", "origin", branchName]);
-		// cleanup(tempFolder);
+		cleanup(tempFolder);
 		setupIndexHtml(branchName, dependencies, code);
 	}
 
