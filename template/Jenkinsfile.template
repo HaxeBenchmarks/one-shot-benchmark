@@ -18,9 +18,9 @@ pipeline {
             steps {
                 echo 'run benchmark'
                 sh '''
-                    git clone --depth 1 https://github.com/HaxeBenchmarks/benchs.haxe.org.git
-                    mkdir -p one-shot
-                    cd one-shot
+                    git clone --depth 1 https://github.com/HaxeBenchmarks/benchmark-runner.git
+                    mkdir -p benchmark-runner/one-shot
+                    cd benchmark-runner/one-shot
                     git clone $ONE_SHOT_BENCHMARK_REPO --branch ::branchName:: --single-branch ::branchName::
                 '''
             }
@@ -29,7 +29,7 @@ pipeline {
             steps {
                 echo 'run benchmark'
                 sh '''
-                    cd one-shot/::branchName::
+                    cd benchmark-runner/one-shot/::branchName::
                     lix download
                     haxe run.hxml
                 '''
@@ -39,6 +39,7 @@ pipeline {
     post {
         success {
             sh '''
+                cp benchmark-runner/one-shot/benchmark-run/haxe*.json $BENCHMARKS_WEBROOT/one-shot-benchmarks/::branchName::/
                 echo "finished" > $BENCHMARKS_WEBROOT/one-shot-benchmarks/::branchName::/status.txt
             '''
         }
