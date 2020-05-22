@@ -1,0 +1,9 @@
+-cp src
+-php site
+-main OneShotBenchmarkPage
+
+-resource template/uploadForm.html.template@uploadForm.html
+-resource template/oneShotResults.html.template@oneShotResults.html
+-resource template/OneShotBenchmark.hx.template@OneShotBenchmark.hx
+-resource template/Jenkinsfile.template@Jenkinsfile
+-resource template/run.hxml.template@run_hxml

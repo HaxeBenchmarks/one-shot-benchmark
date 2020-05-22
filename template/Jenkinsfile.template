@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+    options {
+        timeout(time: 1, unit: 'HOURS')
+        disableConcurrentBuilds()
+        buildDiscarder(logRotator(numToKeepStr: '1', artifactNumToKeepStr: '1'))
+    }
+    stages {
+        stage('checkout') {
+            steps {
+                echo 'run benchmark'
+                sh '''
+                    echo "running" > $BENCHMARKS_WEBROOT/one-shot-benchmarks/::branchName::/status.txt
+                '''
+            }
+        }
+        stage('checkout') {
+            steps {
+                echo 'run benchmark'
+                sh '''
+                    git clone --depth 1 https://github.com/HaxeBenchmarks/benchs.haxe.org.git
+                    mkdir -p one-shot
+                    cd one-shot
+                    git clone $ONE_SHOT_BENCHMARK_REPO --branch ::branchName:: --single-branch ::branchName::
+                '''
+            }
+        }
+        stage('run benchmark') {
+            steps {
+                echo 'run benchmark'
+                sh '''
+                    cd one-shot/::branchName::
+                    lix download
+                    haxe run.hxml
+                '''
+            }
+        }
+    }
+    post {
+        success {
+            sh '''
+                echo "finished" > $BENCHMARKS_WEBROOT/one-shot-benchmarks/::branchName::/status.txt
+            '''
+        }
+        failure {
+            sh '''
+                echo "failed" > $BENCHMARKS_WEBROOT/one-shot-benchmarks/::branchName::/status.txt
+            '''
+        }
+    }
+}

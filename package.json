@@ -1,0 +1,27 @@
+{
+  "name": "one-shot-benchmarks",
+  "version": "1.1.0",
+  "description": "Haxe benchmark site https://benchs.haxe.org",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HaxeBenchmarks/one-shot-benchmarks.git"
+  },
+  "keywords": [
+    "benchmark",
+    "haxe"
+  ],
+  "author": {
+    "name": "Alexander Blum",
+    "email": "Alexander.Blum@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/HaxeBenchmarks/one-shot-benchmarks/issues"
+  },
+  "dependencies": {
+    "sass": ""
+  },
+  "devDependencies": {
+    "lix": "^15.8.15"
+  },
+  "homepage": "https://github.com/HaxeBenchmarks/one-shot-benchmarks#readme"
+}

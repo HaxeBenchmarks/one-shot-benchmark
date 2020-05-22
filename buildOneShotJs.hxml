@@ -1,0 +1,9 @@
+-cp src
+-cp benchs.haxe.org/src
+
+-lib jQueryExtern
+-lib json2object
+-lib benchmark-helper
+
+-js site/js/one-shot-benchmark.js
+-main OneShotBenchmarkJs

@@ -1,0 +1,20 @@
+import benchmark.Benchmark;
+
+class OneShotBenchmark {
+	public static function main():Void {
+		Benchmark.benchmarkAll( // version setup
+			(haxe) -> {
+				installLibraries: [
+					::foreach libs::::name:: => ::url::, 
+					::end::]
+			}, // target compile
+			(haxe, target) -> {
+				useLibraries: [::foreach libs::::name::, ::end::],
+				classPaths: [".."],
+				main: "BenchmarkCode"
+			}, // target run
+			(haxe, target) -> {
+				timeout: 3 * 60
+			});
+	}
+}

@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>One Shot Benchmark</title>
+            <link href="../css/benchmark.css" type="text/css" rel="stylesheet" />
+            <link href="css/one-shot-benchmark.css" type="text/css" rel="stylesheet" />
+        </head>
+    <body>
+        <div id="oneShotBenchmarkForm">
+            <form method="POST" enctype="multipart/form-data">
+                <div class="dependenciesContainer">
+                    <label for="dependencies">dependencies - one per line: <pre>&lt;name&gt; &lt;gh:github.com/owner/repo#hash | haxelib:/name#version&gt;</pre></label>
+                    <textarea id="dependencies" name="dependencies"></textarea>
+                </div>
+                <div class="codeContainer">
+                    <label for="code">code</label>
+                    <textarea id="code" name="code">class BenchmarkCode {
+    public static function main() {
+    }
+}</textarea>
+                </div>
+                <div class="submitContainer">
+                    <input type="submit" name="submitBenchmark" value="run as benchmark" />
+                </div>
+            </form>
+        </div>
+    </body>
+    <script src="../js/jquery.min.js" type="text/javascript"></script>
+    <script src="../js/jquery-ui.min.js" type="text/javascript"></script>
+</html>

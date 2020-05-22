@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>One Shot Benchmark</title>
+            <link href="../../css/Chart.min.css" type="text/css" rel="stylesheet" />
+            <link href="../../css/jquery-ui.css" type="text/css" rel="stylesheet" />
+            <link href="../../css/benchmark.css" type="text/css" rel="stylesheet" />
+            <link href="../css/one-shot-benchmark.css" type="text/css" rel="stylesheet" />
+        </head>
+    <body>
+        <nav class="section nav dark">
+            <div class="navbar navbar-fixed-top navbar-inverse">
+                <div class="navbar-inner">
+                    <a class="brand haxe-logo" href="https://haxe.org/"><img alt="Haxe" height="21" src="https://haxe.org/img/haxe-logo-horizontal-on-dark.svg" width="107" /></a>
+                    <a class="brand sub lib" href="/">&larr;&nbsp;Haxe Benchmarks</a>
+                </div>
+            </div>
+        </nav>
+        <h1>One Shot Benchmark</h1>
+        <p>Status: <span id="benchmark-status">unknown</span></p>
+
+        <pre>
+        ::libs::
+        </pre>
+        <pre>
+            <code class="prettyprint haxe">
+            ::code::
+            </code>
+        </pre>
+
+        <div class="benchmarkGraphs" stlye="">
+            <canvas id="latestBenchmarks" height="400" class="chartjs-render-monitor"></canvas>
+            <canvas id="latestCompileTimes" height="400" class="chartjs-render-monitor"></canvas>
+        </div>
+    </body>
+
+    <script src="../../js/jquery.min.js" type="text/javascript"></script>
+    <script src="../../js/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="../../js/Chart.min.js" type="text/javascript"></script>
+    <script src="../js/one-shot-benchmark.js" type="text/javascript"></script>
+</html>
