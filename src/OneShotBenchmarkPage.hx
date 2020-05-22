@@ -49,8 +49,9 @@ class OneShotBenchmarkPage {
 		command("git", ["add", "."]);
 		command("git", ["commit", "-m", "submitted for benchmark"]);
 		command("git", ["push", "--set-upstream", "origin", branchName]);
-		cleanup(tempFolder);
 		setupIndexHtml(branchName, dependencies, code);
+		cleanup(tempFolder);
+		redirect('/one-shot-benchmarks/$branchName');
 	}
 
 	static function writeRunHxml(branchName:String, tempFolder:String) {
@@ -104,14 +105,13 @@ class OneShotBenchmarkPage {
 			code: code
 		}
 		var template:Template = new Template(Resource.getString("oneShotResults.html"));
-		var webrootFolder:String = Sys.getEnv("BENCHMARKS_WEBROOT");
+		var webrootFolder:String = OneShotBenchmarkMacro.webRoot();
 		if (webrootFolder == null) {
 			return;
 		}
 		FileSystem.createDirectory(Path.join([webrootFolder, "one-shot-benchmarks", branchName]));
 		File.saveContent(Path.join([webrootFolder, "one-shot-benchmarks", branchName, "index.html"]), template.execute(context));
 		File.saveContent(Path.join([webrootFolder, "one-shot-benchmarks", branchName, "status.txt"]), cast OneShotStatus.InQueue);
-		redirect('/one-shot-benchmarks/$branchName');
 	}
 
 	static function command(cmd:String, ?args:Array<String>):Int {

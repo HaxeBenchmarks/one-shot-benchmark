@@ -39,7 +39,7 @@ pipeline {
     post {
         success {
             sh '''
-                cp benchmark-runner/one-shot/benchmark-run/haxe*.json $BENCHMARKS_WEBROOT/one-shot-benchmarks/::branchName::/
+                cp benchmark-runner/one-shot/::branchName::/benchmark-run/haxe*.json $BENCHMARKS_WEBROOT/one-shot-benchmarks/::branchName::/
                 echo "finished" > $BENCHMARKS_WEBROOT/one-shot-benchmarks/::branchName::/status.txt
             '''
         }
