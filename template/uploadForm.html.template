@@ -2,7 +2,7 @@
     <head>
         <title>One Shot Benchmark</title>
             <link href="../css/benchmark.css" type="text/css" rel="stylesheet" />
-            <link href="css/one-shot-benchmark.css" type="text/css" rel="stylesheet" />
+            <link href="../css/one-shot-benchmark.css" type="text/css" rel="stylesheet" />
         </head>
     <body>
         <div id="oneShotBenchmarkForm">

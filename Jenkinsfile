@@ -79,6 +79,8 @@ pipeline {
                 echo 'Install to webserver'
                 sh '''
                 rsync -rlu site/* $BENCHMARKS_WEBROOT/one-shot
+                mv $BENCHMARKS_WEBROOT/one-shot/js/one-shot-benchmark.js $BENCHMARKS_WEBROOT/js
+                mv $BENCHMARKS_WEBROOT/one-shot/css/one-shot-benchmark.css $BENCHMARKS_WEBROOT/css
                 mkdir -p $BENCHMARKS_WEBROOT/one-shot-benchmarks
                 '''
             }
