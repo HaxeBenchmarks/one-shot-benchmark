@@ -108,6 +108,7 @@ class OneShotBenchmarkPage {
 		if (webrootFolder == null) {
 			return;
 		}
+		FileSystem.createDirectory(Path.join([webrootFolder, "one-shot-benchmarks", branchName]));
 		File.saveContent(Path.join([webrootFolder, "one-shot-benchmarks", branchName, "index.html"]), template.execute(context));
 		File.saveContent(Path.join([webrootFolder, "one-shot-benchmarks", branchName, "status.txt"]), cast OneShotStatus.InQueue);
 		redirect('/one-shot-benchmarks/$branchName');
