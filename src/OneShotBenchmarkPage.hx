@@ -88,11 +88,13 @@ class OneShotBenchmarkPage {
 	}
 
 	static function cleanup(tempFolder:String) {
-		FileSystem.deleteFile(Path.join([tempFolder, "Jenkinsfile"]));
-		FileSystem.deleteFile(Path.join([tempFolder, "run.hxml"]));
-		FileSystem.deleteFile(Path.join([tempFolder, "OneShotBenchmark.hx"]));
-		FileSystem.deleteFile(Path.join([tempFolder, "BenchmarkCode.hx"]));
-		FileSystem.deleteDirectory(tempFolder);
+		try {
+			FileSystem.deleteFile(Path.join([tempFolder, "Jenkinsfile"]));
+			FileSystem.deleteFile(Path.join([tempFolder, "run.hxml"]));
+			FileSystem.deleteFile(Path.join([tempFolder, "OneShotBenchmark.hx"]));
+			FileSystem.deleteFile(Path.join([tempFolder, "BenchmarkCode.hx"]));
+			FileSystem.deleteDirectory(tempFolder);
+		} catch (e:Exception) {}
 	}
 
 	static function setupIndexHtml(branchName:String, libs:String, code:String) {
