@@ -21,7 +21,7 @@
     "sass": ""
   },
   "devDependencies": {
-    "lix": "^15.10.1"
+    "lix": "^15.12.1"
   },
   "homepage": "https://github.com/HaxeBenchmarks/one-shot-benchmarks#readme"
 }
